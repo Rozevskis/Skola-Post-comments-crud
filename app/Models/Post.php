@@ -16,8 +16,8 @@ class Post extends Model
         'user_id'
     ];
 
-    public function comments(): BelongsTo
+    public function comments(): HasMany
     {
-        return $this->belongsTo(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 }
