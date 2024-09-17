@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -42,7 +42,7 @@ class PostController extends Controller
     {
         return view('posts.show', ['post' => $post]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -71,8 +71,9 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('posts.index');
     }
-    
-    public function addComment(Request $request, Post $post) {
+
+    public function addComment(Request $request, Post $post)
+    {
         return redirect()->route('posts.show', $post);
     }
 }
